@@ -22,6 +22,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--dark-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         
+        /* NAVEGACIÓN SERIA Y DINÁMICA */
         nav { position: fixed; top: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); padding: 1.2rem 2rem; z-index: 100; border-bottom: 1px solid #334155; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
         nav a { color: var(--text-light); text-decoration: none; font-weight: 600; font-size: 1.05rem; transition: color 0.3s; position: relative; padding: 0.2rem 0; letter-spacing: 0.5px; }
         nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: var(--primary); transition: width 0.3s ease; }
@@ -30,6 +31,7 @@
 
         header { min-height: 100vh; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 2rem; background: radial-gradient(circle at center, var(--dark-surface) 0%, var(--dark-bg) 100%); animation: fadeIn 1s ease-out; overflow: hidden; }
         
+        /* FONDO CÓDIGO TIPO TERMINAL */
         .code-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.15; font-family: 'Courier New', Courier, monospace; font-weight: bold; color: var(--success); }
         .code-bg span { position: absolute; display: block; font-size: 1.2rem; white-space: nowrap; animation: floatUp linear infinite; opacity: 0; }
         
@@ -43,7 +45,23 @@
         @keyframes floatUp { 0% { transform: translateY(100vh); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-20vh); opacity: 0; } }
 
         .header-content { position: relative; z-index: 10; margin-top: 3rem; }
-        h1 { font-size: 4rem; color: #fff; margin-bottom: 0.5rem; letter-spacing: -1px; text-shadow: 0 0 20px var(--primary-glow); }
+        
+        /* NOMBRE COMPLETO CON DESTELLO LIMPIO Y ELEGANTE */
+        .name-title { 
+            font-size: clamp(2.5rem, 5vw, 4.2rem); /* Se adapta a móviles y PC */
+            font-weight: 800; 
+            margin-bottom: 0.5rem; 
+            letter-spacing: -1px; 
+            background: linear-gradient(90deg, #ffffff 0%, #60a5fa 30%, #10b981 50%, #60a5fa 70%, #ffffff 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shineName 6s linear infinite;
+        }
+        @keyframes shineName {
+            to { background-position: 200% center; }
+        }
         
         .hero-subtitle { font-size: 1.6rem; color: #60a5fa; margin-bottom: 2rem; font-weight: 400; font-family: monospace; }
         .cursor { display: inline-block; width: 10px; height: 1.2em; background-color: #60a5fa; vertical-align: middle; animation: blink 1s step-end infinite; }
@@ -70,6 +88,7 @@
         .block-title { font-size: 1.2rem; color: #fff; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
         .block-num { color: var(--primary); font-family: monospace; font-size: 1.1rem; }
         .info-block p { color: var(--text-light); font-size: 1.05rem; }
+        .info-block strong { color: #fff; }
 
         .skills-box { background: var(--dark-surface); padding: 2rem; border-radius: 15px; border: 1px solid #334155; position: sticky; top: 100px; }
         .skills-box h3 { color: var(--primary); margin-bottom: 1rem; }
@@ -96,6 +115,7 @@
         .modal-section h4 { font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem; }
         .modal-section p { color: var(--text-light); line-height: 1.6; }
 
+        /* CONTACTO */
         .hablemos-title { 
             font-family: monospace;
             font-size: clamp(3rem, 8vw, 7rem); 
@@ -165,7 +185,7 @@
         </div>
 
         <div class="header-content">
-            <h1>Jessica S. Gallegos</h1>
+            <h1 class="name-title">Jessica Silvana Gallegos Morejón</h1>
             <h2 class="hero-subtitle">> Desarrolladora Web Junior<span class="cursor"></span></h2>
             <div class="btn-container">
                 <a href="#proyectos" class="btn btn-primary">Ver Trabajos</a>
@@ -188,13 +208,13 @@
                 <!-- Bloque 2 -->
                 <div class="info-block">
                     <h3 class="block-title"><span class="block-num">02.</span> El salto al Software</h3>
-                    <p>Tras años consolidando mis conocimientos en el mundo OT (Tecnología de las Operaciones), decidí dar el salto al sector IT porque me fascina todo lo relacionado con el desarrollo. Entendí que conocer el lado físico de la industria me da una ventaja única. Mi paso por logística me enseñó la importancia de calcular tiempos y preparar materiales para un montaje perfecto, una lógica estructural que ahora aplico directamente a la arquitectura del código. Me veo muy capaz de aportar gran valor en esta unión de sectores.</p>
+                    <p>Tras años consolidando mis bases en el mundo OT (Tecnología de las Operaciones), decidí dar el salto al sector IT atraída profundamente por el desarrollo y la programación. Entendí que dominar el entorno físico de la industria me otorga una visión organizativa única: aprendí a gestionar materiales, estructurar fabricaciones y asimilar que <strong>los tiempos lo son todo</strong>. Hoy, esa capacidad de anticipación y optimización de recursos la aplico directamente al diseño y arquitectura del código. Me veo totalmente preparada para aportar valor uniendo ambos mundos.</p>
                 </div>
 
                 <!-- Bloque 3 -->
                 <div class="info-block">
                     <h3 class="block-title"><span class="block-num">03.</span> Experiencia actual</h3>
-                    <p>En mi trayectoria dentro de <strong>Electro Ilunbe / CAF Power</strong>, formo parte de la zona de prototipos, lo que me obliga a investigar, adaptarme y aprender continuamente con cada nuevo proyecto. Como Facilitadora de Línea, he liderado equipos aplicando metodología <strong>LEAN</strong>, encargándome de mantener el trabajo ordenado y asegurando que mis compañeros tuvieran sus operaciones diarias al día. Esta experiencia gestionando el factor humano e incidencias bajo presión es mi mayor fortaleza.</p>
+                    <p>En mi trayectoria dentro de <strong>Electro Ilunbe / CAF Power</strong> formo parte de la zona de prototipos, un entorno exigente que me empuja a investigar y adaptarme continuamente. Como Facilitadora de Línea, mi gran fortaleza es el <strong>trabajo bajo presión</strong> mediante metodologías <strong>LEAN</strong>. Me encargo de garantizar que la producción fluya, organizando al equipo y actuando como puente directo con los Jefes de Proyecto. Ante cualquier obstáculo en planta, analizo la incidencia, gestiono su resolución con los responsables y aseguro que el trabajo diario salga adelante con precisión.</p>
                 </div>
             </div>
 
@@ -211,10 +231,10 @@
                 </div>
                 <h3 style="margin-top: 2rem;">Soft Skills</h3>
                 <div class="skills-list">
+                    <span class="skill-tag">Gestión de incidencias</span>
+                    <span class="skill-tag">Trabajo bajo presión</span>
                     <span class="skill-tag">Metodología LEAN</span>
-                    <span class="skill-tag">Trabajo en equipo</span>
-                    <span class="skill-tag">Constancia y aprendizaje</span>
-                    <span class="skill-tag">Lógica organizativa</span>
+                    <span class="skill-tag">Optimización de tiempos</span>
                 </div>
             </div>
         </div>
@@ -281,13 +301,13 @@
         <div class="cta-container">
             <div class="cta-box">
                 <h3 class="cta-title">Escríbeme</h3>
-                <p class="cta-desc">¿Buscas a alguien que no se rinda ante un bug complejo? Con mi formación en DAW y mi disciplina forjada bajo presión en la industria, estoy lista para aportar código limpio, estructura y valor real a tu equipo.</p>
+                <p class="cta-desc">¿Buscas a alguien que no se rinda ante un bug complejo? Con mi formación en DAW y mi capacidad forjada bajo presión en la industria para liderar y resolver incidencias, estoy lista para aportar código limpio, estructura y valor real a tu equipo.</p>
                 
                 <div class="cta-snippet">
                     <span class="kw">const</span> <span class="var">jessica</span> = {<br>
                     &nbsp;&nbsp;<span class="prop">status</span>: <span class="str">"Open to work"</span>,<br>
                     &nbsp;&nbsp;<span class="prop">role</span>: <span class="str">"Junior Web Developer"</span>,<br>
-                    &nbsp;&nbsp;<span class="prop">superpower</span>: <span class="str">"Rigor industrial + Código limpio"</span><br>
+                    &nbsp;&nbsp;<span class="prop">superpower</span>: <span class="str">"Gestión bajo presión + Código estructurado"</span><br>
                     };<br>
                     <span class="var">jessica</span>.<span class="prop">contact</span>();<span class="cursor"></span>
                 </div>
