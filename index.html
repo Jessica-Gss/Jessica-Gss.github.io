@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jessica S. Gallegos | Portfolio DAW</title>
+    
+    <!-- FAVICON GENERADO POR CÓDIGO (Logo JG) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230f172a'/><text x='50' y='72' font-family='monospace' font-weight='900' font-size='65' text-anchor='middle'><tspan fill='%233b82f6'>J</tspan><tspan fill='%2310b981'>G</tspan></text></svg>">
+    
     <style>
         :root {
             --primary: #3b82f6;
@@ -18,7 +22,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--dark-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         
-        /* NAVEGACIÓN SERIA Y DINÁMICA (EFECTO SUBRAYADO) */
         nav { position: fixed; top: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); padding: 1.2rem 2rem; z-index: 100; border-bottom: 1px solid #334155; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
         nav a { color: var(--text-light); text-decoration: none; font-weight: 600; font-size: 1.05rem; transition: color 0.3s; position: relative; padding: 0.2rem 0; letter-spacing: 0.5px; }
         nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: var(--primary); transition: width 0.3s ease; }
@@ -59,7 +62,6 @@
         .section-title { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; color: #fff; position: relative; }
         .section-title::after { content: ''; width: 60px; height: 4px; background: var(--primary); display: block; margin: 10px auto 0; border-radius: 2px; }
 
-        /* BLOQUES DE SOBRE MÍ REESTRUCTURADOS */
         .about-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 3rem; align-items: start; }
         @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
         
@@ -83,7 +85,6 @@
         .card-title { font-size: 1.3rem; margin-bottom: 0.5rem; color: #fff; }
         .card-desc { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem; }
 
-        /* ESTILOS DEL MODAL */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(5px); z-index: 999; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
         .modal-box { background: var(--dark-surface); border: 1px solid #334155; border-radius: 15px; max-width: 700px; width: 90%; padding: 2.5rem; position: relative; transform: translateY(20px); transition: transform 0.3s ease; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
@@ -95,15 +96,47 @@
         .modal-section h4 { font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem; }
         .modal-section p { color: var(--text-light); line-height: 1.6; }
 
-        /* CONTACTO - HABLEMOS GIGANTE */
-        .hablemos-title { font-size: clamp(3rem, 10vw, 8rem); font-weight: 900; color: rgba(255,255,255,0.03); text-align: center; line-height: 0.8; margin-bottom: -2rem; letter-spacing: -3px; text-transform: uppercase; user-select: none; position: relative; z-index: 0; }
+        .hablemos-title { 
+            font-family: monospace;
+            font-size: clamp(3rem, 8vw, 7rem); 
+            font-weight: 900; 
+            color: transparent; 
+            -webkit-text-stroke: 1.5px rgba(59, 130, 246, 0.15); 
+            text-align: center; 
+            margin-bottom: -3rem; 
+            letter-spacing: -2px; 
+            position: relative; 
+            z-index: 0; 
+            animation: pulseGlow 4s infinite alternate;
+        }
+        @keyframes pulseGlow {
+            0% { text-shadow: 0 0 10px rgba(59,130,246,0); }
+            100% { text-shadow: 0 0 30px rgba(59,130,246,0.25); }
+        }
+        
         .cta-container { display: flex; justify-content: center; padding: 1rem 0; position: relative; z-index: 1; }
         .cta-box { background: #0a0f1c; border: 1px solid #1e293b; border-radius: 12px; padding: 3rem; max-width: 800px; width: 100%; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .cta-title { font-size: 3rem; font-weight: 800; color: #fff; margin-bottom: 1rem; letter-spacing: -2px; line-height: 1; }
+        .cta-title { font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 1rem; }
         .cta-desc { color: #94a3b8; font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem; max-width: 90%; }
-        .cta-email { color: #94a3b8; margin-bottom: 1.5rem; display: block; font-size: 1rem; }
-        .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
         
+        .cta-snippet {
+            background: #050810;
+            border: 1px solid #1e293b;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            color: #a8b2d1;
+            margin-bottom: 2rem;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+            overflow-x: auto;
+        }
+        .cta-snippet .kw { color: #c678dd; } 
+        .cta-snippet .var { color: #e5c07b; } 
+        .cta-snippet .prop { color: #61afef; } 
+        .cta-snippet .str { color: #98c379; } 
+        
+        .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
         .btn-white { background: #fff; color: #0a0f1c; border: 1px solid #fff; }
         .btn-white:hover { background: #e2e8f0; transform: translateY(-3px); }
         .btn-dark { background: #0a0f1c; color: #fff; border: 1px solid #334155; }
@@ -146,19 +179,16 @@
         <div class="about-grid">
             
             <div class="about-text-blocks">
-                <!-- Bloque 1 -->
                 <div class="info-block">
                     <h3 class="block-title"><span class="block-num">01.</span> Perfil y Visión</h3>
                     <p>Soy una profesional perseverante, analítica y en constante evolución. Me apasiona el aprendizaje continuo sobre nuevas tecnologías y el diseño de arquitecturas de software. Tras forjar una sólida disciplina en la industria electromecánica, busco aplicar esa capacidad resolutiva, liderazgo y organización estricta al desarrollo de aplicaciones tecnológicas escalables y limpias.</p>
                 </div>
 
-                <!-- Bloque 2 -->
                 <div class="info-block">
                     <h3 class="block-title"><span class="block-num">02.</span> Electro Ilunbe & CAF Power</h3>
                     <p>Como <strong>Técnica de Prototipos y Facilitadora de Línea</strong>, garantizo la calidad técnica de proyectos industriales de alta exigencia. Lidero la coordinación de producción y la resolución de incidencias en planta, reportando directamente a Jefes de Proyecto. Mi día a día exige precisión absoluta: desde la interpretación de esquemas complejos y pruebas de aislamiento, hasta el control de inventario de componentes críticos y baterías.</p>
                 </div>
 
-                <!-- Bloque 3 -->
                 <div class="info-block">
                     <h3 class="block-title"><span class="block-num">03.</span> Del Hardware al Código</h3>
                     <p>Mis cimientos se consolidaron en el ensamblaje, trabajando con cableado de tensión y participando en la fabricación de cuadros eléctricos primarios. Hoy en día, compagino esta gran responsabilidad profesional con la obtención de mi titulación en <strong>Desarrollo de Aplicaciones Web (DAW)</strong>. Toda mi experiencia en control de calidad, flujo de trabajo y rigor industrial, la invierto ahora en programar soluciones sólidas y testear código eficiente.</p>
@@ -243,14 +273,21 @@
     </section>
 
     <section id="contacto" style="padding-bottom: 8rem; position: relative;">
-        <!-- TEXTO GIGANTE DE FONDO -->
-        <h2 class="hablemos-title">HABLEMOS</h2>
+        <h2 class="hablemos-title">&lt;HABLEMOS /&gt;</h2>
         
         <div class="cta-container">
             <div class="cta-box">
                 <h3 class="cta-title">Escríbeme</h3>
-                <p class="cta-desc">Busco mi primera oportunidad profesional como Desarrolladora Web Junior. Con el rigor analítico de la industria y mi pasión por el código estructurado, busco programar software que marque la diferencia. Escríbeme por donde te vaya mejor.</p>
-                <span class="cta-email">jessica.sigm@gmail.com</span>
+                <p class="cta-desc">¿Buscas a alguien que no se rinda ante un bug complejo? Con mi formación en DAW y mi disciplina forjada bajo presión en la industria, estoy lista para aportar código limpio, estructura y valor real a tu equipo.</p>
+                
+                <div class="cta-snippet">
+                    <span class="kw">const</span> <span class="var">jessica</span> = {<br>
+                    &nbsp;&nbsp;<span class="prop">status</span>: <span class="str">"Open to work"</span>,<br>
+                    &nbsp;&nbsp;<span class="prop">role</span>: <span class="str">"Junior Web Developer"</span>,<br>
+                    &nbsp;&nbsp;<span class="prop">superpower</span>: <span class="str">"Rigor industrial + Código limpio"</span><br>
+                    };<br>
+                    <span class="var">jessica</span>.<span class="prop">contact</span>();<span class="cursor"></span>
+                </div>
                 
                 <div class="cta-buttons">
                     <a href="mailto:jessica.sigm@gmail.com" class="btn btn-white">
@@ -270,7 +307,6 @@
         </div>
     </section>
 
-    <!-- Modal Oculto -->
     <div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
         <div class="modal-box">
             <button class="modal-close" onclick="forceCloseModal()">✕</button>
