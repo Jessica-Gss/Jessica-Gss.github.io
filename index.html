@@ -13,26 +13,17 @@
             --dark-surface: #1e293b;
             --text-main: #f8fafc;
             --text-light: #94a3b8;
-            
-            /* Colores de lenguajes */
-            --c-java: #e48e00;
-            --c-php: #777bb4;
-            --c-js: #f7df1e;
-            --c-html: #e34f26;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--dark-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         
-        /* NAVEGACIÓN TIPO PESTAÑAS DE CÓDIGO */
-        nav { position: fixed; top: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); padding: 1rem 2rem; z-index: 100; border-bottom: 1px solid #334155; display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
-        nav a { color: var(--text-light); text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 6px; font-family: monospace; display: flex; align-items: center; gap: 0.5rem; }
-        nav a:hover { color: #fff; background: rgba(255,255,255,0.05); }
-        .nav-ext { font-weight: 800; }
-        .ext-java { color: var(--c-java); }
-        .ext-php { color: var(--c-php); }
-        .ext-js { color: var(--c-js); }
-        .ext-html { color: var(--c-html); }
+        /* NAVEGACIÓN SERIA Y DINÁMICA (EFECTO SUBRAYADO) */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); padding: 1.2rem 2rem; z-index: 100; border-bottom: 1px solid #334155; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+        nav a { color: var(--text-light); text-decoration: none; font-weight: 600; font-size: 1.05rem; transition: color 0.3s; position: relative; padding: 0.2rem 0; letter-spacing: 0.5px; }
+        nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: var(--primary); transition: width 0.3s ease; }
+        nav a:hover { color: #fff; }
+        nav a:hover::after { width: 100%; }
 
         header { min-height: 100vh; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 2rem; background: radial-gradient(circle at center, var(--dark-surface) 0%, var(--dark-bg) 100%); animation: fadeIn 1s ease-out; overflow: hidden; }
         
@@ -68,7 +59,7 @@
         .section-title { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; color: #fff; position: relative; }
         .section-title::after { content: ''; width: 60px; height: 4px; background: var(--primary); display: block; margin: 10px auto 0; border-radius: 2px; }
 
-        /* BLOQUES DE SOBRE MÍ */
+        /* BLOQUES DE SOBRE MÍ REESTRUCTURADOS */
         .about-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 3rem; align-items: start; }
         @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
         
@@ -124,10 +115,10 @@
 <body>
 
     <nav>
-        <a href="#inicio"><span class="nav-ext ext-java">.java</span> Inicio</a>
-        <a href="#sobre-mi"><span class="nav-ext ext-php">.php</span> Sobre_mí</a>
-        <a href="#proyectos"><span class="nav-ext ext-js">.js</span> Proyectos</a>
-        <a href="#contacto"><span class="nav-ext ext-html">.html</span> Contacto</a>
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
     </nav>
 
     <header id="inicio">
@@ -157,20 +148,20 @@
             <div class="about-text-blocks">
                 <!-- Bloque 1 -->
                 <div class="info-block">
-                    <h3 class="block-title"><span class="block-num">01.</span> Quién soy</h3>
-                    <p>Soy una persona perseverante, analítica y en constante evolución. Me apasiona aprender cada día sobre nuevas tecnologías y arquitecturas de software. Busco constantemente nuevos retos que me permitan crecer profesionalmente y aportar soluciones reales, organizadas y eficientes mediante el código.</p>
+                    <h3 class="block-title"><span class="block-num">01.</span> Perfil y Visión</h3>
+                    <p>Soy una profesional perseverante, analítica y en constante evolución. Me apasiona el aprendizaje continuo sobre nuevas tecnologías y el diseño de arquitecturas de software. Tras forjar una sólida disciplina en la industria electromecánica, busco aplicar esa capacidad resolutiva, liderazgo y organización estricta al desarrollo de aplicaciones tecnológicas escalables y limpias.</p>
                 </div>
 
                 <!-- Bloque 2 -->
                 <div class="info-block">
-                    <h3 class="block-title"><span class="block-num">02.</span> El salto al Software</h3>
-                    <p>Tras años en el sector industrial garantizando la precisión de sistemas físicos y metodologías organizativas rigurosas, decidí dar un salto hacia mi verdadera vocación: la tecnología. En el desarrollo de software he encontrado el ecosistema perfecto para aplicar mi capacidad de resolución de problemas lógicos, trasladando la disciplina de la fábrica a la creación de aplicaciones escalables.</p>
+                    <h3 class="block-title"><span class="block-num">02.</span> Electro Ilunbe & CAF Power</h3>
+                    <p>Como <strong>Técnica de Prototipos y Facilitadora de Línea</strong>, garantizo la calidad técnica de proyectos industriales de alta exigencia. Lidero la coordinación de producción y la resolución de incidencias en planta, reportando directamente a Jefes de Proyecto. Mi día a día exige precisión absoluta: desde la interpretación de esquemas complejos y pruebas de aislamiento, hasta el control de inventario de componentes críticos y baterías.</p>
                 </div>
 
                 <!-- Bloque 3 -->
                 <div class="info-block">
-                    <h3 class="block-title"><span class="block-num">03.</span> Experiencia y Habilidades</h3>
-                    <p>Actualmente trabajo en <strong>Electro Ilunbe</strong>, donde participo de forma práctica en proyectos de montaje electromecánico subcontratados para <strong>CAF Power</strong>. A su vez, compagino esta exigente labor a jornada completa con la recta final de mi titulación en <strong>Desarrollo de Aplicaciones Web (DAW)</strong>, lo que demuestra mi capacidad de esfuerzo, gestión del tiempo y compromiso absoluto con mi transición al sector IT.</p>
+                    <h3 class="block-title"><span class="block-num">03.</span> Del Hardware al Código</h3>
+                    <p>Mis cimientos se consolidaron en el ensamblaje, trabajando con cableado de tensión y participando en la fabricación de cuadros eléctricos primarios. Hoy en día, compagino esta gran responsabilidad profesional con la obtención de mi titulación en <strong>Desarrollo de Aplicaciones Web (DAW)</strong>. Toda mi experiencia en control de calidad, flujo de trabajo y rigor industrial, la invierto ahora en programar soluciones sólidas y testear código eficiente.</p>
                 </div>
             </div>
 
@@ -187,10 +178,10 @@
                 </div>
                 <h3 style="margin-top: 2rem;">Soft Skills</h3>
                 <div class="skills-list">
-                    <span class="skill-tag">Gestión del tiempo</span>
-                    <span class="skill-tag">Resolución de problemas</span>
-                    <span class="skill-tag">Perseverancia</span>
-                    <span class="skill-tag">Trabajo bajo presión</span>
+                    <span class="skill-tag">Gestión y Liderazgo</span>
+                    <span class="skill-tag">Prototipado y Testeo</span>
+                    <span class="skill-tag">Resolución de incidencias</span>
+                    <span class="skill-tag">Logística / Flujo de trabajo</span>
                 </div>
             </div>
         </div>
