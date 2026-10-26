@@ -7,149 +7,180 @@
     <style>
         :root {
             --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.5);
             --dark-bg: #0f172a;
             --dark-surface: #1e293b;
-            --text-main: #334155;
-            --text-light: #64748b;
-            --bg-color: #f8fafc;
-            --white: #ffffff;
+            --text-main: #f8fafc;
+            --text-light: #94a3b8;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
         
-        /* Cabecera Dinámica (Dark Tech) */
-        header { 
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-surface) 100%); 
-            padding: 5rem 2rem; 
-            text-align: center; 
-            border-bottom: 5px solid var(--primary);
-            color: var(--white);
-            animation: fadeInDown 0.8s ease-out;
-        }
-        h1 { font-size: 2.8rem; color: #60a5fa; margin-bottom: 0.5rem; text-shadow: 0 2px 10px rgba(96, 165, 250, 0.3); }
-        h2 { font-size: 1.3rem; color: #94a3b8; font-weight: 300; margin-bottom: 1.5rem; }
-        .bio { max-width: 750px; margin: 0 auto; color: #cbd5e1; font-size: 1.15rem; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--dark-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         
-        /* Botones Animados */
-        .contact-links { margin-top: 2.5rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-        .btn { padding: 0.8rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; border: 2px solid var(--primary); }
-        .btn-primary { background: var(--primary); color: var(--white); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
-        .btn-primary:hover { background: #2563eb; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6); }
-        .btn-outline { background: transparent; color: #60a5fa; border-color: #60a5fa; }
-        .btn-outline:hover { background: rgba(96, 165, 250, 0.1); transform: translateY(-3px); }
+        /* Navegación Fija */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); padding: 1rem 2rem; z-index: 100; border-bottom: 1px solid #334155; display: flex; justify-content: center; gap: 2rem; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        nav a:hover { color: var(--primary); }
 
-        /* Sección de Proyectos */
-        .container { max-width: 1200px; margin: 4rem auto; padding: 0 2rem; }
-        .section-title { text-align: center; margin-bottom: 3.5rem; font-size: 2.2rem; color: var(--dark-bg); font-weight: 800; }
+        /* Sección Hero (Inicio) */
+        header { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 2rem; background: radial-gradient(circle at center, var(--dark-surface) 0%, var(--dark-bg) 100%); animation: fadeIn 1s ease-out; }
+        h1 { font-size: 3.5rem; color: #fff; margin-bottom: 0.5rem; letter-spacing: -1px; text-shadow: 0 0 20px var(--primary-glow); }
+        .hero-subtitle { font-size: 1.5rem; color: var(--primary); margin-bottom: 2rem; font-weight: 300; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
-        
-        /* Tarjetas con Efecto Hover Dinámico */
-        .card { 
-            background: var(--white); 
-            border-radius: 12px; 
-            overflow: hidden; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
-            border: 1px solid #e2e8f0;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            animation: fadeInUp 1s ease-out backwards;
-        }
-        .card:hover { 
-            transform: translateY(-12px); 
-            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.15), 0 10px 10px -5px rgba(59, 130, 246, 0.1); 
-            border-color: var(--primary);
-        }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.4s; }
+        /* Botones */
+        .btn-container { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        .btn { padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+        .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 0 15px var(--primary-glow); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 25px var(--primary); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: #fff; transform: translateY(-3px); }
 
-        .card-img { width: 100%; height: 220px; object-fit: cover; border-bottom: 3px solid #f1f5f9; transition: transform 0.5s; }
-        .card:hover .card-img { transform: scale(1.05); }
-        
-        .card-content { padding: 1.8rem; position: relative; background: var(--white); z-index: 2; }
-        .card-title { font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--dark-bg); font-weight: 700; }
-        .card-desc { color: var(--text-light); font-size: 1rem; margin-bottom: 1.5rem; }
-        
-        /* Etiquetas de Tecnologías */
-        .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-        .tag { background: #eff6ff; color: #1d4ed8; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid #bfdbfe; }
-        
+        /* Secciones Generales */
+        section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; color: #fff; position: relative; }
+        .section-title::after { content: ''; width: 60px; height: 4px; background: var(--primary); display: block; margin: 10px auto 0; border-radius: 2px; }
+
+        /* Sobre Mí */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+        .about-text p { color: var(--text-light); font-size: 1.1rem; margin-bottom: 1.5rem; }
+        .skills-box { background: var(--dark-surface); padding: 2rem; border-radius: 15px; border: 1px solid #334155; }
+        .skills-box h3 { color: var(--primary); margin-bottom: 1rem; }
+        .skills-list { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+        .skill-tag { background: rgba(59, 130, 246, 0.1); color: #93c5fd; padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.2); }
+
+        /* Proyectos */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: var(--dark-surface); border-radius: 15px; overflow: hidden; transition: all 0.4s ease; border: 1px solid #334155; position: relative; top: 0; }
+        .card:hover { top: -10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-color: var(--primary); }
+        .card-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid #334155; filter: grayscale(20%); transition: 0.4s; }
+        .card:hover .card-img { filter: grayscale(0%); }
+        .card-content { padding: 1.5rem; }
+        .card-title { font-size: 1.3rem; margin-bottom: 0.5rem; color: #fff; }
+        .card-desc { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+        /* Contacto */
+        .contact-box { background: var(--dark-surface); padding: 4rem 2rem; border-radius: 20px; text-align: center; border: 1px solid #334155; }
+        .contact-item { margin: 1.5rem 0; font-size: 1.2rem; }
+        .contact-item a { color: #93c5fd; text-decoration: none; transition: color 0.3s; }
+        .contact-item a:hover { color: #fff; }
+
         /* Animaciones */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        footer { text-align: center; padding: 2.5rem; background: var(--dark-bg); margin-top: 5rem; color: #64748b; font-size: 0.95rem; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Jessica S. Gallegos Morejón</h1>
-        <h2>Desarrolladora Web Junior | Industria 4.0 & Software</h2>
-        <p class="bio">Con 9 años de experiencia en el sector industrial electromecánico, aplico el rigor, la capacidad analítica y la resolución de incidencias bajo presión al desarrollo de software limpio y funcional.</p>
-        
-        <div class="contact-links">
-            <a href="https://www.linkedin.com/in/jessica-s-gallegos-morejon-100abb446" class="btn btn-primary" target="_blank">Ver Perfil Técnico en LinkedIn</a>
-            <a href="mailto:jessica.sigm@gmail.com" class="btn btn-outline">jessica.sigm@gmail.com</a>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <header id="inicio">
+        <h1>Jessica S. Gallegos</h1>
+        <h2 class="hero-subtitle">Desarrolladora Web | Industria 4.0</h2>
+        <div class="btn-container">
+            <a href="#proyectos" class="btn btn-primary">Ver Trabajos</a>
+            <a href="#contacto" class="btn btn-outline">Contactar</a>
         </div>
     </header>
 
-    <div class="container">
-        <h2 class="section-title">Proyectos Destacados</h2>
-        
-        <div class="grid">
-            <!-- Proyecto 1 -->
-            <div class="card">
-                <img src="foto-biltxa.png" alt="Proyecto Biltxa" class="card-img" onerror="this.src='https://via.placeholder.com/400x220/e2e8f0/64748b?text=Foto+Pendiente'">
-                <div class="card-content">
-                    <h3 class="card-title">E-Commerce "Biltxa"</h3>
-                    <p class="card-desc">Maquetación web front-end para una tienda de artículos de mascotas. Diseño limpio, centrado en la experiencia de usuario (UX/UI) y llamadas a la acción claras.</p>
-                    <div class="tags">
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
-                        <span class="tag">Diseño UI</span>
-                    </div>
-                </div>
+    <section id="sobre-mi">
+        <h2 class="section-title">Conóceme</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Mi perfil es inusual y esa es mi mayor ventaja. Aporto <strong>9 años de experiencia en el sector industrial electromecánico</strong>, donde aprendí el valor de la precisión, el análisis lógico y la resolución de problemas bajo presión.</p>
+                <p>Además, mi vocación por las personas me llevó a formarme en el <strong>sector sanitario (TCAE)</strong>, desarrollando una gran empatía, adaptabilidad y una sensibilidad especial por el cuidado y la accesibilidad.</p>
+                <p>Hoy, como estudiante de <strong>Desarrollo de Aplicaciones Web (DAW)</strong>, uno estos dos mundos: la lógica estructurada de la industria y el enfoque humano de la salud, para programar software que no solo funcione a la perfección, sino que realmente aporte valor a las personas.</p>
             </div>
-
-            <!-- Proyecto 2 -->
-            <div class="card">
-                <img src="foto-inventario.png" alt="Mini Inventario" class="card-img" onerror="this.src='https://via.placeholder.com/400x220/e2e8f0/64748b?text=Foto+Pendiente'">
-                <div class="card-content">
-                    <h3 class="card-title">Sistema "Mini Inventario"</h3>
-                    <p class="card-desc">Aplicación enfocada en la lógica back-end y bases de datos para el registro, gestión y control de stock de artículos, simulando entornos reales de producción.</p>
-                    <div class="tags">
-                        <span class="tag">Java / PHP</span>
-                        <span class="tag">PostgreSQL</span>
-                        <span class="tag">Back-end</span>
-                    </div>
+            <div class="skills-box">
+                <h3>Tech Skills</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">HTML5 / CSS3</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">JUnit</span>
+                    <span class="skill-tag">Git / GitHub</span>
                 </div>
-            </div>
-
-            <!-- Proyecto 3 -->
-            <div class="card">
-                <img src="foto-testing.png" alt="Testing JUnit" class="card-img" onerror="this.src='https://via.placeholder.com/400x220/e2e8f0/64748b?text=Foto+Pendiente'">
-                <div class="card-content">
-                    <h3 class="card-title">Testing y Calidad de Código</h3>
-                    <p class="card-desc">Implementación de pruebas unitarias para garantizar la fiabilidad del software. Uso de herramientas de control de versiones y entornos de construcción.</p>
-                    <div class="tags">
-                        <span class="tag">JUnit</span>
-                        <span class="tag">Maven</span>
-                        <span class="tag">QA Testing</span>
-                    </div>
+                <h3 style="margin-top: 2rem;">Soft Skills</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Resolución de incidencias</span>
+                    <span class="skill-tag">Empatía y UX humana</span>
+                    <span class="skill-tag">Trabajo en equipo</span>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 Jessica S. Gallegos. Portfolio de Desarrollo de Aplicaciones Web.</p>
-    </footer>
+    <section id="proyectos">
+        <h2 class="section-title">Proyectos Destacados</h2>
+        <div class="project-grid">
+            
+            <div class="card">
+                <img src="foto-biltxa.png" alt="Biltxa" class="card-img" onerror="this.src='https://via.placeholder.com/400x200/1e293b/94a3b8?text=E-Commerce'">
+                <div class="card-content">
+                    <h3 class="card-title">E-Commerce "Biltxa"</h3>
+                    <p class="card-desc">Maquetación web front-end para tienda de mascotas. Diseño enfocado en la experiencia de usuario (UX/UI).</p>
+                    <div class="skills-list"><span class="skill-tag">HTML/CSS</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="foto-inventario.png" alt="Inventario" class="card-img" onerror="this.src='https://via.placeholder.com/400x200/1e293b/94a3b8?text=Gestor+Stock'">
+                <div class="card-content">
+                    <h3 class="card-title">Sistema "Mini Inventario"</h3>
+                    <p class="card-desc">Lógica back-end para el registro y control de stock de artículos, simulando entornos de producción reales.</p>
+                    <div class="skills-list"><span class="skill-tag">Java/PHP</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="foto-testing.png" alt="Testing" class="card-img" onerror="this.src='https://via.placeholder.com/400x200/1e293b/94a3b8?text=Testing+QA'">
+                <div class="card-content">
+                    <h3 class="card-title">Testing y Calidad (QA)</h3>
+                    <p class="card-desc">Implementación de pruebas unitarias para garantizar la fiabilidad del software sin errores en producción.</p>
+                    <div class="skills-list"><span class="skill-tag">JUnit</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="foto-bbdd.png" alt="Base de datos" class="card-img" onerror="this.src='https://via.placeholder.com/400x200/1e293b/94a3b8?text=Base+de+Datos'">
+                <div class="card-content">
+                    <h3 class="card-title">Arquitectura de Datos</h3>
+                    <p class="card-desc">Diseño e implementación de bases de datos relacionales para la persistencia segura de la información.</p>
+                    <div class="skills-list"><span class="skill-tag">PostgreSQL</span><span class="skill-tag">SQL</span></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2 class="section-title">Contacto</h2>
+        <div class="contact-box">
+            <p style="color: var(--text-light); margin-bottom: 2rem;">¿Buscas un perfil Junior con madurez profesional y capacidad resolutiva? Hablemos.</p>
+            
+            <div class="contact-item">
+                📧 <strong>Email:</strong> <br>
+                <a href="mailto:jessica.sigm@gmail.com">jessica.sigm@gmail.com</a>
+            </div>
+            
+            <div class="contact-item">
+                💼 <strong>LinkedIn:</strong> <br>
+                <!-- OJO: Aquí he puesto tu enlace real -->
+                <a href="https://www.linkedin.com/in/jessica-s-gallegos-morejon-100abb446" target="_blank">jessica-s-gallegos-morejon</a>
+            </div>
+
+            <div class="contact-item">
+                💻 <strong>GitHub:</strong> <br>
+                <a href="https://github.com/Jessica-Gss" target="_blank">github.com/Jessica-Gss</a>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
