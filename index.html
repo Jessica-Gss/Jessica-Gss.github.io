@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jessica S. Gallegos | Portfolio DAW</title>
+    <style>
+        :root {
+            --primary: #1e3a8a; /* Azul profesional similar a tu CV */
+            --secondary: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-color: #f3f4f6;
+            --white: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-dark); line-height: 1.6; }
+        
+        /* Cabecera */
+        header { background: var(--white); padding: 4rem 2rem; text-align: center; border-bottom: 4px solid var(--primary); }
+        h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+        h2 { font-size: 1.2rem; color: var(--text-light); font-weight: 400; margin-bottom: 1.5rem; }
+        .bio { max-width: 700px; margin: 0 auto; color: var(--text-dark); font-size: 1.1rem; }
+        
+        /* Botones de Contacto */
+        .contact-links { margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .btn { padding: 0.6rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; border: 2px solid var(--primary); }
+        .btn-primary { background: var(--primary); color: var(--white); }
+        .btn-primary:hover { background: var(--secondary); border-color: var(--secondary); }
+        .btn-outline { background: transparent; color: var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: var(--white); }
+
+        /* Sección de Proyectos */
+        .container { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; }
+        .section-title { text-align: center; margin-bottom: 3rem; font-size: 2rem; color: var(--primary); }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        
+        /* Tarjetas de Proyectos */
+        .card { background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card-img { width: 100%; height: 200px; background-color: #e5e7eb; object-fit: cover; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-style: italic; }
+        .card-content { padding: 1.5rem; }
+        .card-title { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--primary); }
+        .card-desc { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1rem; }
+        
+        /* Etiquetas de Tecnologías */
+        .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .tag { background: #e0e7ff; color: #3730a3; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+        
+        /* Footer */
+        footer { text-align: center; padding: 2rem; background: var(--white); margin-top: 4rem; color: var(--text-light); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Jessica S. Gallegos Morejón</h1>
+        <h2>Desarrolladora Web Junior | Industria 4.0 & Software</h2>
+        <p class="bio">Con 9 años de experiencia en el sector industrial electromecánico, aplico el rigor, la capacidad analítica y la resolución de incidencias bajo presión al desarrollo de software limpio y funcional.</p>
+        
+        <div class="contact-links">
+            <a href="URL_DE_TU_LINKEDIN" class="btn btn-primary" target="_blank">Ver LinkedIn</a>
+            <a href="mailto:jessica.sigm@gmail.com" class="btn btn-outline">jessica.sigm@gmail.com</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Proyectos Destacados</h2>
+        
+        <div class="grid">
+            <!-- Proyecto 1 -->
+            <div class="card">
+                <!-- Para poner la foto de tu proyecto, cambia "foto-biltxa.png" por el nombre de tu imagen -->
+                <img src="foto-biltxa.png" alt="Proyecto Biltxa" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">E-Commerce "Biltxa"</h3>
+                    <p class="card-desc">Maquetación web front-end para una tienda de artículos de mascotas. Diseño limpio, centrado en la experiencia de usuario (UX/UI) y llamadas a la acción claras.</p>
+                    <div class="tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">Diseño Web</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 2 -->
+            <div class="card">
+                <div class="card-img">Sin imagen (Lógica de servidor)</div>
+                <div class="card-content">
+                    <h3 class="card-title">Sistema "Mini Inventario"</h3>
+                    <p class="card-desc">Aplicación enfocada en la lógica back-end y bases de datos para el registro, gestión y control de stock de artículos, simulando entornos reales de producción.</p>
+                    <div class="tags">
+                        <span class="tag">Java / PHP</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Lógica Back-end</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 3 -->
+            <div class="card">
+                <div class="card-img">Sin imagen (Testing)</div>
+                <div class="card-content">
+                    <h3 class="card-title">Testing y Calidad de Código</h3>
+                    <p class="card-desc">Implementación de pruebas unitarias para garantizar la fiabilidad del software. Uso de herramientas de control de versiones y entornos de construcción.</p>
+                    <div class="tags">
+                        <span class="tag">JUnit</span>
+                        <span class="tag">Maven</span>
+                        <span class="tag">Control de Calidad</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Jessica S. Gallegos. Portfolio creado para prácticas DAW.</p>
+    </footer>
+
+</body>
+</html>
