@@ -8,7 +8,6 @@
         :root {
             --primary: #3b82f6;
             --primary-glow: rgba(59, 130, 246, 0.5);
-            --success: #10b981; /* Verde terminal */
             --dark-bg: #0f172a;
             --dark-surface: #1e293b;
             --text-main: #f8fafc;
@@ -18,47 +17,18 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--dark-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         
-        /* NAVEGACIÓN ESTILO PROGRAMADOR */
-        nav { position: fixed; top: 0; width: 100%; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); padding: 1.2rem 2rem; z-index: 100; border-bottom: 1px solid #334155; display: flex; justify-content: center; gap: 2.5rem; }
-        nav a { color: var(--text-main); text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: color 0.3s; position: relative; display: inline-block; }
-        nav a::before { content: '< '; color: var(--primary); opacity: 0; transition: 0.3s; font-family: monospace; font-weight: bold; }
-        nav a::after { content: ' />'; color: var(--primary); opacity: 0; transition: 0.3s; font-family: monospace; font-weight: bold; }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); padding: 1rem 2rem; z-index: 100; border-bottom: 1px solid #334155; display: flex; justify-content: center; gap: 2rem; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 600; transition: color 0.3s; }
         nav a:hover { color: var(--primary); }
-        nav a:hover::before, nav a:hover::after { opacity: 1; }
 
-        /* CABECERA (HERO) CON ANIMACIÓN LIGERA DE CONSOLA */
-        header { min-height: 100vh; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 2rem; background: radial-gradient(circle at center, var(--dark-surface) 0%, var(--dark-bg) 100%); animation: fadeIn 1s ease-out; overflow: hidden; }
-        
-        /* Elementos de código flotantes (Súper ligeros) */
-        .code-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.15; font-family: 'Courier New', Courier, monospace; font-weight: bold; color: var(--success); }
-        .code-bg span { position: absolute; display: block; font-size: 1.2rem; white-space: nowrap; animation: floatUp linear infinite; opacity: 0; }
-        
-        /* Retrasos y posiciones aleatorias para el efecto matrix/terminal */
-        .code-bg span:nth-child(1) { left: 10%; animation-duration: 15s; animation-delay: 0s; }
-        .code-bg span:nth-child(2) { left: 40%; animation-duration: 22s; animation-delay: 2s; }
-        .code-bg span:nth-child(3) { left: 70%; animation-duration: 18s; animation-delay: 5s; }
-        .code-bg span:nth-child(4) { left: 85%; animation-duration: 25s; animation-delay: 1s; }
-        .code-bg span:nth-child(5) { left: 20%; animation-duration: 20s; animation-delay: 8s; }
-        .code-bg span:nth-child(6) { left: 60%; animation-duration: 19s; animation-delay: 4s; }
-
-        @keyframes floatUp {
-            0% { transform: translateY(100vh); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-20vh); opacity: 0; }
-        }
-
-        .header-content { position: relative; z-index: 10; }
-        h1 { font-size: 4rem; color: #fff; margin-bottom: 0.5rem; letter-spacing: -1px; text-shadow: 0 0 20px var(--primary-glow); }
-        
-        /* Subtítulo tipo Terminal */
-        .hero-subtitle { font-size: 1.6rem; color: #60a5fa; margin-bottom: 2rem; font-weight: 400; font-family: monospace; }
-        .cursor { display: inline-block; width: 10px; height: 1.2em; background-color: #60a5fa; vertical-align: middle; animation: blink 1s step-end infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        header { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 2rem; background: radial-gradient(circle at center, var(--dark-surface) 0%, var(--dark-bg) 100%); animation: fadeIn 1s ease-out; }
+        h1 { font-size: 3.5rem; color: #fff; margin-bottom: 0.5rem; letter-spacing: -1px; text-shadow: 0 0 20px var(--primary-glow); }
+        .hero-subtitle { font-size: 1.5rem; color: var(--primary); margin-bottom: 2rem; font-weight: 300; }
         
         .btn-container { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem; }
         .btn { padding: 0.8rem 2rem; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center; }
         
+        /* Botones generales */
         .btn-primary { background: var(--primary); color: #fff; border: none; box-shadow: 0 0 15px var(--primary-glow); border-radius: 30px; text-transform: uppercase; letter-spacing: 1px; }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 25px var(--primary); }
         .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); border-radius: 30px; text-transform: uppercase; letter-spacing: 1px; }
@@ -69,10 +39,9 @@
         .section-title { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; color: #fff; position: relative; }
         .section-title::after { content: ''; width: 60px; height: 4px; background: var(--primary); display: block; margin: 10px auto 0; border-radius: 2px; }
 
-        /* SECCIÓN SOBRE MÍ TECNOLÓGICA */
-        .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
         @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
-        .about-text p { color: var(--text-light); font-size: 1.15rem; margin-bottom: 1.5rem; }
+        .about-text p { color: var(--text-light); font-size: 1.1rem; margin-bottom: 1.5rem; }
         .skills-box { background: var(--dark-surface); padding: 2rem; border-radius: 15px; border: 1px solid #334155; }
         .skills-box h3 { color: var(--primary); margin-bottom: 1rem; }
         .skills-list { display: flex; flex-wrap: wrap; gap: 0.8rem; }
@@ -87,6 +56,7 @@
         .card-title { font-size: 1.3rem; margin-bottom: 0.5rem; color: #fff; }
         .card-desc { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem; }
 
+        /* Estilos del Modal (Ventana Emergente) */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(5px); z-index: 999; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
         .modal-box { background: var(--dark-surface); border: 1px solid #334155; border-radius: 15px; max-width: 700px; width: 90%; padding: 2.5rem; position: relative; transform: translateY(20px); transition: transform 0.3s ease; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
@@ -98,6 +68,7 @@
         .modal-section h4 { font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem; }
         .modal-section p { color: var(--text-light); line-height: 1.6; }
 
+        /* NUEVA SECCIÓN DE CONTACTO TIPO TARJETA */
         .cta-container { display: flex; justify-content: center; padding: 1rem 0; }
         .cta-box { background: #0a0f1c; border: 1px solid #1e293b; border-radius: 12px; padding: 3rem; max-width: 800px; width: 100%; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .cta-title { font-size: 3rem; font-weight: 800; color: #fff; margin-bottom: 1rem; letter-spacing: -2px; line-height: 1; }
@@ -105,6 +76,7 @@
         .cta-email { color: #94a3b8; margin-bottom: 1.5rem; display: block; font-size: 1rem; }
         .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
         
+        /* Botones específicos de contacto */
         .btn-white { background: #fff; color: #0a0f1c; border: 1px solid #fff; }
         .btn-white:hover { background: #e2e8f0; transform: translateY(-3px); }
         .btn-dark { background: #0a0f1c; color: #fff; border: 1px solid #334155; }
@@ -123,23 +95,11 @@
     </nav>
 
     <header id="inicio">
-        <!-- Efecto de código flotante -->
-        <div class="code-bg">
-            <span>[OK] BUILD SUCCESSFUL in 1s</span>
-            <span>Process finished with exit code 0</span>
-            <span>{ "status": 200, "message": "OK" }</span>
-            <span>System.out.println("Hello World");</span>
-            <span>SELECT * FROM developers WHERE stack = 'Java';</span>
-            <span>git commit -m "Deploy to production"</span>
-        </div>
-
-        <div class="header-content">
-            <h1>Jessica S. Gallegos</h1>
-            <h2 class="hero-subtitle">> Desarrolladora Web Junior<span class="cursor"></span></h2>
-            <div class="btn-container">
-                <a href="#proyectos" class="btn btn-primary">Ver Trabajos</a>
-                <a href="#contacto" class="btn btn-outline">Contactar</a>
-            </div>
+        <h1>Jessica S. Gallegos</h1>
+        <h2 class="hero-subtitle">Desarrolladora Web | Industria 4.0</h2>
+        <div class="btn-container">
+            <a href="#proyectos" class="btn btn-primary">Ver Trabajos</a>
+            <a href="#contacto" class="btn btn-outline">Contactar</a>
         </div>
     </header>
 
@@ -147,12 +107,12 @@
         <h2 class="section-title">Conóceme</h2>
         <div class="about-grid">
             <div class="about-text">
-                <p>Aporto <strong>9 años de experiencia en el sector industrial electromecánico</strong>, donde he interiorizado el valor de la precisión absoluta, el análisis lógico estructurado y la resolución de incidencias complejas en entornos de alta exigencia.</p>
-                <p>Hoy, como estudiante de <strong>Desarrollo de Aplicaciones Web (DAW)</strong>, traslado toda esa capacidad analítica y de optimización de procesos directamente al código. Me apasiona construir software escalable, diseñar bases de datos eficientes y maquetar interfaces funcionales.</p>
-                <p>Mi objetivo es claro: aportar madurez profesional, adaptabilidad técnica y un enfoque orientado a resultados en mi primera oportunidad como <strong>Desarrolladora Web</strong>.</p>
+                <p>Mi perfil es inusual y esa es mi mayor ventaja. Aporto <strong>9 años de experiencia en el sector industrial electromecánico</strong>, donde aprendí el valor de la precisión, el análisis lógico y la resolución de problemas bajo presión.</p>
+                <p>Además, mi vocación por las personas me llevó a formarme en el <strong>sector sanitario (TCAE)</strong>, desarrollando una gran empatía, adaptabilidad y una sensibilidad especial por el cuidado y la accesibilidad.</p>
+                <p>Hoy, como estudiante de <strong>Desarrollo de Aplicaciones Web (DAW)</strong>, uno estos dos mundos: la lógica estructurada de la industria y el enfoque humano de la salud, para programar software que no solo funcione a la perfección, sino que realmente aporte valor a las personas.</p>
             </div>
             <div class="skills-box">
-                <h3>Tech Stack</h3>
+                <h3>Tech Skills</h3>
                 <div class="skills-list">
                     <span class="skill-tag">Java</span>
                     <span class="skill-tag">PHP</span>
@@ -164,9 +124,9 @@
                 </div>
                 <h3 style="margin-top: 2rem;">Soft Skills</h3>
                 <div class="skills-list">
-                    <span class="skill-tag">Resolución de problemas</span>
-                    <span class="skill-tag">Lógica estructurada</span>
-                    <span class="skill-tag">Trabajo bajo presión</span>
+                    <span class="skill-tag">Resolución de incidencias</span>
+                    <span class="skill-tag">Empatía y UX humana</span>
+                    <span class="skill-tag">Trabajo en equipo</span>
                 </div>
             </div>
         </div>
@@ -227,11 +187,12 @@
         </div>
     </section>
 
+    <!-- SECCIÓN DE CONTACTO ACTUALIZADA (ESTILO TARJETA OSCURA) -->
     <section id="contacto" style="padding-bottom: 8rem;">
         <div class="cta-container">
             <div class="cta-box">
                 <h3 class="cta-title">Escríbeme</h3>
-                <p class="cta-desc">Busco mi primera oportunidad profesional como Desarrolladora Web Junior. Con el rigor analítico de la industria y mi pasión por el código limpio, busco programar software que marque la diferencia. Escríbeme por donde te vaya mejor.</p>
+                <p class="cta-desc">Busco mi primera oportunidad profesional como Desarrolladora Web Junior. Con el rigor de la industria electromecánica y mi vocación por las personas, busco programar software que aporte un valor real. Escríbeme por donde te vaya mejor.</p>
                 <span class="cta-email">jessica.sigm@gmail.com</span>
                 
                 <div class="cta-buttons">
